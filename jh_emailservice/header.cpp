@@ -5,7 +5,7 @@ void AccountController::LoginAccount()
 	while (true)
 	{
 		system("cls");
-		std::cout << "<< 로그인 >>" << std::endl << std::endl;
+		std::cout << "<< 로그인 >>" << "\n\n";
 		std::cout << "아이디: ";
 		std::cin >> id;
 		std::cout << "비밀번호: ";
@@ -14,7 +14,7 @@ void AccountController::LoginAccount()
 		if (account_map.find(id) == account_map.end())
 		{
 			system("cls");
-			std::cout << "아이디가 존재하지 않습니다." << std::endl;
+			std::cout << "아이디가 존재하지 않습니다." << "\n";
 			Sleep(1000);
 			while (true)
 			{
@@ -29,7 +29,7 @@ void AccountController::LoginAccount()
 					return;
 				else
 				{
-					std::cout << "잘못 입력하셨습니다. 다시 입력해 주세요." << std::endl;
+					std::cout << "잘못 입력하셨습니다. 다시 입력해 주세요." << "\n";
 					Sleep(1000);
 				}
 			}
@@ -50,7 +50,7 @@ void AccountController::LoginAccount()
 				else if (answer == "n")
 					return;
 				else {
-					std::cout << "잘못 입력하셨습니다. 다시 입력해 주세요." << std::endl;
+					std::cout << "잘못 입력하셨습니다. 다시 입력해 주세요." << "\n";
 					Sleep(1000);
 				}
 			}
@@ -69,17 +69,17 @@ void AccountController::SignupAccount()
 	while (true)
 	{
 		system("cls");
-		std::cout << "<< 회원가입 >>" << std::endl << std::endl;
+		std::cout << "<< 회원가입 >>" << "\n\n";
 		std::cout << "아이디: ";
 		std::cin >> id;
 		std::cout << "비밀번호: ";
 		std::cin >> password;
-		std::cout << std::endl << std::endl;
+		std::cout << "\n\n";
 		auto iter = account_map.find(id);
 		if (iter != account_map.end())
 		{
 			system("cls");
-			std::cout << "중복된 아이디입니다." << std::endl;
+			std::cout << "중복된 아이디입니다." << "\n";
 			Sleep(1000);
 			while (true)
 			{
@@ -102,7 +102,7 @@ void AccountController::SignupAccount()
 		else
 		{
 			account_map[id] = password;
-			std::cout << "회원가입이 완료되었습니다." << std::endl;
+			std::cout << "회원가입이 완료되었습니다." << "\n";
 			Sleep(1000);
 			return;
 		}
@@ -113,11 +113,11 @@ void EmailController::AccountPage(const std::string& id)
 	while (true)
 	{
 		system("cls");
-		std::cout << "<< (" << id << ")마이룸 >> " << std::endl << std::endl;
-		std::cout << "1. 이메일쓰기" << std::endl;
-		std::cout << "2. 보낸이메일함" << std::endl;
-		std::cout << "3. 받은이메일함" << std::endl;
-		std::cout << "4. 로그아웃" << std::endl << std::endl;
+		std::cout << "<< (" << id << ")마이룸 >> " << "\n\n";
+		std::cout << "1. 이메일쓰기" << "\n";
+		std::cout << "2. 보낸이메일함" << "\n";
+		std::cout << "3. 받은이메일함" << "\n";
+		std::cout << "4. 로그아웃" << "\n\n";
 		std::cout << "원하시는 번호를 입력해주세요. ";
 		std::cin >> answer;
 
@@ -135,7 +135,7 @@ void EmailController::AccountPage(const std::string& id)
 			SentEmail(id);
 		}
 		else if (answer == "3") {
-			std::cout << std::endl << std::endl;
+			std::cout << "\n\n";
 			ReceivedEmail(id);
 		}
 		else if (answer == "4") {
@@ -153,19 +153,19 @@ void EmailController::WriteEmail(const std::string& id)
 	while (true)
 	{
 		system("cls");
-		std::cout << "<< 메일 보내기 >>" << std::endl << std::endl;
+		std::cout << "<< 메일 보내기 >>" << "\n\n";
 		mail.from = id;
 		std::cout << "To: ";
 		std::cin >> mail.to;
 		if (account_map.find(mail.to) == account_map.end())
 		{
 			system("cls");
-			std::cout << "아이디가 존재하지 않습니다." << std::endl;
+			std::cout << "아이디가 존재하지 않습니다." << "\n";
 			Sleep(1000);
 			while (true)
 			{
 				system("cls");
-				std::cout << "계속해서 메일을 쓰시겠습니까?(y/n) " << std::endl;
+				std::cout << "계속해서 메일을 쓰시겠습니까?(y/n) " << "\n";
 				std::cin >> answer;
 				if (answer == "y")
 				{
@@ -174,7 +174,7 @@ void EmailController::WriteEmail(const std::string& id)
 				else if (answer == "n")
 					return;
 				else {
-					std::cout << "잘못 입력하셨습니다. 다시 입력해 주세요." << std::endl;
+					std::cout << "잘못 입력하셨습니다. 다시 입력해 주세요." << "\n";
 					Sleep(1000);
 				}
 			}
@@ -187,7 +187,7 @@ void EmailController::WriteEmail(const std::string& id)
 			std::cout << "내용: ";
 			getline(std::cin, mail.contents);
 			email.push_back(mail);
-			std::cout << "전송 완료" << std::endl << std::endl;
+			std::cout << "전송 완료" << "\n\n";
 			Sleep(1000);
 			while (true)
 			{
@@ -215,19 +215,19 @@ void EmailController::SentEmail(const std::string& id)
 {
 	system("cls");
 	check = 0;
-	std::cout << "<< 보낸 메일 >>" << std::endl << std::endl;
+	std::cout << "<< 보낸 메일 >>" << "\n\n";
 	for (int i = 0; i < email.size(); i++) {
 		if (email[i].from == id) {
-			std::cout << "-------------------" << std::endl;
-			std::cout << "받는 사람: " << email[i].to << std::endl;
-			std::cout << "제목: " << email[i].title << std::endl;
-			std::cout << "내용: " << email[i].contents << std::endl << std::endl;
+			std::cout << "-------------------" << "\n";
+			std::cout << "받는 사람: " << email[i].to << "\n";
+			std::cout << "제목: " << email[i].title << "\n";
+			std::cout << "내용: " << email[i].contents << "\n\n";
 			++check;
 		}
 	}
 	if (check == 0)
 	{
-		std::cout << "보낸 메일이 없습니다." << std::endl << std::endl;
+		std::cout << "보낸 메일이 없습니다." << "\n\n";
 	}
 	system("pause");
 	return;
@@ -236,19 +236,19 @@ void EmailController::ReceivedEmail(const std::string& id)
 {
 	system("cls");
 	check = 0;
-	std::cout << "<< 받은 메일 >>" << std::endl << std::endl;
+	std::cout << "<< 받은 메일 >>" << "\n\n";
 	for (int i = 0; i < email.size(); i++) {
 		if (email[i].to == id) {
-			std::cout << "-------------------" << std::endl;
-			std::cout << "보낸 사람: " << email[i].from << std::endl;
-			std::cout << "제목: " << email[i].title << std::endl;
-			std::cout << "내용: " << email[i].contents << std::endl << std::endl;
+			std::cout << "-------------------" << "\n";
+			std::cout << "보낸 사람: " << email[i].from << "\n";
+			std::cout << "제목: " << email[i].title << "\n";
+			std::cout << "내용: " << email[i].contents << "\n\n";
 			++check;
 		}
 	}
 	if (check == 0)
 	{
-		std::cout << "받은 메일이 없습니다." << std::endl << std::endl;
+		std::cout << "받은 메일이 없습니다." << "\n\n";
 	}
 	system("pause");
 	return;
@@ -258,10 +258,10 @@ void MainController::start()
 	while (true)
 	{
 		system("cls");
-		std::cout << "<< 이메일 서비스입니다 >>" << std::endl << std::endl;
-		std::cout << "1. 로그인" << std::endl;
-		std::cout << "2. 회원가입" << std::endl;
-		std::cout << "3. 종료" << std::endl << std::endl;
+		std::cout << "<< 이메일 서비스입니다 >>" << "\n\n";
+		std::cout << "1. 로그인" << "\n";
+		std::cout << "2. 회원가입" << "\n";
+		std::cout << "3. 종료" << "\n\n";
 		std::cout << "원하시는 번호를 입력해 주세요. ";
 		std::cin >> answer;
 		if (answer == "1")
