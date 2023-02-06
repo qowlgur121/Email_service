@@ -30,15 +30,15 @@ public:
     void ChangeId();
     void ChangePw();
     void SignupAccount();
-    virtual void AccountPage(const std::string& id) = 0;
+    virtual void AccountPage() = 0;
 };
 class EmailController : public AccountController
 {
 public:
-    void AccountPage(const std::string& id) override;
-    void WriteEmail(const std::string& id);
-    void SentEmail(const std::string& id);
-    void ReceivedEmail(const std::string& id);
+    void AccountPage() override;
+    void WriteEmail();
+    void SentEmail();
+    void ReceivedEmail();
 };
 class MainController : public EmailController
 {

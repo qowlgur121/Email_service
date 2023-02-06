@@ -59,7 +59,7 @@ void AccountController::LoginAccount()
 		{
 			std::cout << "로그인 되었습니다.";
 			Sleep(1000);
-			AccountPage(id);
+			AccountPage();
 			return;
 		}
 	}
@@ -214,7 +214,7 @@ void AccountController::SignupAccount()
 		}
 	}
 }
-void EmailController::AccountPage(const std::string& id)
+void EmailController::AccountPage()
 {
 	while (true)
 	{
@@ -237,15 +237,15 @@ void EmailController::AccountPage(const std::string& id)
 		}
 		else if (answer == "1") 
 		{
-			WriteEmail(id);
+			WriteEmail();
 		}
 		else if (answer == "2") 
 		{
-			SentEmail(id);
+			SentEmail();
 		}
 		else if (answer == "3") 
 		{
-			ReceivedEmail(id);
+			ReceivedEmail();
 		}
 		else if (answer == "4")
 		{
@@ -262,7 +262,7 @@ void EmailController::AccountPage(const std::string& id)
 		}
 	}
 }
-void EmailController::WriteEmail(const std::string& id)
+void EmailController::WriteEmail()
 {
 	while (true)
 	{
@@ -325,7 +325,7 @@ void EmailController::WriteEmail(const std::string& id)
 		}
 	}
 }
-void EmailController::SentEmail(const std::string& id)
+void EmailController::SentEmail()
 {
 	system("cls");
 	check = 0;
@@ -333,12 +333,12 @@ void EmailController::SentEmail(const std::string& id)
 	for (int i = 0; i < email.size(); i++) 
 	{
 		if (email[i].from == id) {
+			++check;
 			std::cout << "-------------------" << "\n";
 			std::cout << "("<<check<<")" << "\n";
 			std::cout << "받는 사람: " << email[i].to << "\n";
 			std::cout << "제목: " << email[i].title << "\n";
 			std::cout << "내용: " << email[i].contents << "\n\n";
-			++check;
 		}
 	}
 	if (check == 0)
@@ -348,20 +348,19 @@ void EmailController::SentEmail(const std::string& id)
 	system("pause");
 	return;
 }
-void EmailController::ReceivedEmail(const std::string& id)
+void EmailController::ReceivedEmail()
 {
 	system("cls");
 	check = 0;
 	std::cout << "<< 받은 메일 >>" << "\n\n";
 	for (int i = 0; i < email.size(); i++) {
 		if (email[i].to == id) {
+			++check;
 			std::cout << "-------------------" << "\n";
 			std::cout << "(" << check << ")" << "\n";
-			std::cout << "(1)" << "\n";
 			std::cout << "보낸 사람: " << email[i].from << "\n";
 			std::cout << "제목: " << email[i].title << "\n";
 			std::cout << "내용: " << email[i].contents << "\n\n";
-			++check;
 		}
 	}
 	if (check == 0)
