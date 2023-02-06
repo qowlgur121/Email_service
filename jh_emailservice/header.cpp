@@ -10,7 +10,7 @@ void AccountController::LoginAccount()
 		std::cin >> id;
 		std::cout << "비밀번호: ";
 		std::cin >> password;
-		std::cout << std::endl << std::endl;
+		std::cout << "\n\n";
 		if (account_map.find(id) == account_map.end())
 		{
 			system("cls");
@@ -75,8 +75,7 @@ void AccountController::SignupAccount()
 		std::cout << "비밀번호: ";
 		std::cin >> password;
 		std::cout << "\n\n";
-		auto iter = account_map.find(id);
-		if (iter != account_map.end())
+		if (account_map.find(id) != account_map.end())
 		{
 			system("cls");
 			std::cout << "중복된 아이디입니다." << "\n";
@@ -135,7 +134,6 @@ void EmailController::AccountPage(const std::string& id)
 			SentEmail(id);
 		}
 		else if (answer == "3") {
-			std::cout << "\n\n";
 			ReceivedEmail(id);
 		}
 		else if (answer == "4") {
@@ -267,12 +265,10 @@ void MainController::start()
 		if (answer == "1")
 		{
 			LoginAccount();
-			continue;
 		}
 		else if (answer == "2")
 		{
 			SignupAccount();
-			continue;
 		}
 		else if (answer == "3")
 		{
