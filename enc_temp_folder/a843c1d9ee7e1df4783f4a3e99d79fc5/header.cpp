@@ -69,9 +69,9 @@ void AccountController::ChangeAcPage()
 	while (true)
 	{
 		system("cls");
-		std::cout << "<< 회원정보 변경 >>" << "\n\n";
-		std::cout << "1. 아이디 변경" << "\n";
-		std::cout << "2. 비밀번호 변경" << "\n";
+		std::cout << "<< 회원정보변경 >>" << "\n\n";
+		std::cout << "1. 아이디변경" << "\n";
+		std::cout << "2. 비밀번호변경" << "\n";
 		std::cout << "3. 이전 페이지" << "\n\n";
 		std::cout << "원하시는 번호를 입력해주세요. ";
 		std::cin >> answer;
@@ -220,10 +220,10 @@ void EmailController::AccountPage(const std::string& id)
 	{
 		system("cls");
 		std::cout << "<< (" << id << ")마이룸 >> " << "\n\n";
-		std::cout << "1. 이메일 쓰기" << "\n";
-		std::cout << "2. 보낸 이메일함" << "\n";
-		std::cout << "3. 받은 이메일함" << "\n";
-		std::cout << "4. 회원정보 변경" << "\n";
+		std::cout << "1. 이메일쓰기" << "\n";
+		std::cout << "2. 보낸이메일함" << "\n";
+		std::cout << "3. 받은이메일함" << "\n";
+		std::cout << "4. 회원정보변경" << "\n";
 		std::cout << "5. 로그아웃" << "\n\n";
 		std::cout << "원하시는 번호를 입력해주세요. ";
 		std::cin >> answer;

@@ -7,7 +7,8 @@
 #include <map>
 #include "stdlib.h"
 
-struct Mail {
+struct Mail 
+{
     std::string from;
     std::string to;
     std::string title;
@@ -19,11 +20,15 @@ protected:
     int check;
     std::string answer;
     Mail mail;
-    std::string id, password;
+    std::string id , password;
+    std::string id_, password_;
     std::map<std::string, std::string> account_map;
     std::vector<Mail> email;
 public:
     void LoginAccount();
+    void ChangeAcPage();
+    void ChangeId();
+    void ChangePw();
     void SignupAccount();
     virtual void AccountPage(const std::string& id) = 0;
 };
