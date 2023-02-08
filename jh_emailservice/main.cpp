@@ -1,4 +1,6 @@
-#include "header.h";
+#include "MainController.h"
+#include "AccountController.h"
+#include "EmailController.h"
 
 int main()
 {

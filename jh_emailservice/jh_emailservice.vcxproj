@@ -139,11 +139,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="header.h" />
+    <ClInclude Include="AccountController.h" />
+    <ClInclude Include="MailData.h" />
+    <ClInclude Include="MainController.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="header.cpp" />
+    <ClCompile Include="AccountController.cpp" />
+    <ClCompile Include="EmailController.cpp" />
+    <ClCompile Include="EmailController.h" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainController.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
